@@ -7,10 +7,9 @@ object eva01 {
     method puntosQueOtorga() = 2
 
     method sincronizarCon(piloto) {
-        if (self.puedeSincronizarCon(piloto)) {
-            fuerzaAT = 2150.min(fuerzaAT + 1)
-            energia -= 25
-        }
+        fuerzaAT = 2150.min(fuerzaAT + 1)
+        energia -= 25
+        
     }
 
     method recargarEnergia(horas) {
@@ -28,9 +27,7 @@ object eva02 {
     method puntosQueOtorga() = modoCombate.puntosASumar()
 
     method sincronizarCon(piloto) {
-        if (self.puedeSincronizarCon(piloto)) {
-            energia -= modoCombate.energiaAConsumir()
-        }
+        energia -= modoCombate.energiaAConsumir()
     }
 
     method recargarEnergia(horas) {

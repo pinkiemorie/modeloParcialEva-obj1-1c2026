@@ -5,6 +5,7 @@ object asuka {
     var puntosEntrenamiento = 5
     var ultimoEvaSincronizado = eva00
 
+    method puntosEntrenamiento() = puntosEntrenamiento
     method puedeSincronizarCon(eva) = eva.puedeSincronizarCon(self)
     method estaSatisfecha() = ultimoEvaSincronizado.fuerzaAT() > 2115
 
@@ -23,6 +24,7 @@ object shinji {
     const evasSincronizado = []
     var estaCansado = false
 
+    method puntosEntrenamiento() = puntosEntrenamiento
     method puedeSincronizarCon(eva) = eva.puedeSincronizarCon(self) and not estaCansado
     method estaSatisfecha() = nerv.evas().all({e => evasSincronizado.contains(e)})
 
@@ -45,6 +47,7 @@ object rei {
     var puntosEntrenamiento = 0
     var evasSincronizado = 0
 
+    method puntosEntrenamiento() = puntosEntrenamiento
     method puedeSincronizarCon(eva) = eva.puedeSincronizarCon(self) and eva.fuerzaAT() >= 2110 and evasSincronizado < 5
     method estaSatisfecha() = evasSincronizado > 0
 
