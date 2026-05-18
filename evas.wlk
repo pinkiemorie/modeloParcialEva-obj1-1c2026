@@ -4,12 +4,12 @@ object eva01 {
 
     method fuerzaAT() = fuerzaAT
     method puedeSincronizarCon(piloto) = piloto.puntosEntrenamiento() >= 4 and energia > 30
+    method puntosQueOtorga() = 2
 
     method sincronizarCon(piloto) {
         if (self.puedeSincronizarCon(piloto)) {
             fuerzaAT = 2150.min(fuerzaAT + 1)
             energia -= 25
-            piloto.entrenar(2)
         }
     }
 
@@ -25,11 +25,11 @@ object eva02 {
 
     method fuerzaAT() = 2114
     method puedeSincronizarCon(piloto) = piloto.puntosEntrenamiento() >= 2 and energia > 20
+    method puntosQueOtorga() = modoCombate.puntosASumar()
 
     method sincronizarCon(piloto) {
         if (self.puedeSincronizarCon(piloto)) {
             energia -= modoCombate.energiaAConsumir()
-            piloto.entrenar(modoCombate.entrenamientoASumar())
         }
     }
 
@@ -65,10 +65,9 @@ object eva00 {
     var fuerzaAT = 2100
     
     method fuerzaAT() = fuerzaAT
+    method puntosQueOtorga() = 1
 
-    method sincronizarCon(piloto) {
-        piloto.entrenar(1)
-    }
+    method sincronizarCon(piloto) { }
 
     method mejorarFuerza(fuerzaAAgregar) {
         fuerzaAT = 2150.min(fuerzaAT + fuerzaAAgregar)
